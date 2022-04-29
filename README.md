@@ -10,7 +10,6 @@ All dependencies will be installed, and all you have to do is follow the instruc
 ```
 bash <(curl -s https://raw.githubusercontent.com/DxqtxD/NamelessMC-Install/main/install.sh)
 ```
-
 ## Tutorial
 - Navigate to your domain's provider panel and point an A record to the VPS IP address.
 - Access your VPS SSH and run the command above.
