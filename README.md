@@ -7,8 +7,7 @@ There is a easy-install.php for Nameless, but I personally use a VPS to host thi
 All dependencies will be installed, and all you have to do is follow the instructions on the website.
 
 ## Using the script
-```ruby
-
+```
 bash <(curl -s https://raw.githubusercontent.com/DxqtxD/NamelessMC-Install/main/install.sh)
 ```
 
