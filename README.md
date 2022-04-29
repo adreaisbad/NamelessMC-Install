@@ -2,9 +2,6 @@
 
 **IMPORTANT: DO NOT USE THIS SCRIPT; IT HAS NOT BEEN COMPLETELY TESTED AND MAY CAUSE PROBLEMS.**
 
-## What is NamelessMC? 
-A free and powerful website software for Minecraft servers. https://namelessmc.com/
-
 ## What is the purpose of this script?
 I know there is a easy-install.php for Nameless, but I personally use a VPS to host this software (I have never preferred web hosting). 
 All dependencies will be installed, and all you have to do is follow the instructions on the website.
