@@ -4,7 +4,7 @@
 
 ## What is the purpose of this script?
 I know there is a `easy-install.php` for Nameless, but I personally use a VPS to host this software (I have never preferred web hosting). 
-All dependencies will be installed, and all you have to do is follow the instructions on the website.
+All dependencies (MariaDB, Apache2, etc) will be installed, and all you have to do is follow the instructions on the website.
 
 ## Using the script
 ```
