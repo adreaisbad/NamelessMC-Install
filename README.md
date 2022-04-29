@@ -1,5 +1,7 @@
 # NamelessMC Installation Script
 
+For more information about NamelessMC, check out https://namelessmc.com/
+
 **IMPORTANT: DO NOT USE THIS SCRIPT; IT HAS NOT BEEN COMPLETELY TESTED AND MAY CAUSE PROBLEMS.**
 
 ## What is the purpose of this script?
