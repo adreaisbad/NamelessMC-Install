@@ -3,7 +3,7 @@
 **IMPORTANT: DO NOT USE THIS SCRIPT; IT HAS NOT BEEN COMPLETELY TESTED AND MAY CAUSE PROBLEMS.**
 
 ## What is the purpose of this script?
-There is a easy-install.php for Nameless, but I personally use a VPS to host this software (never in my life have I preferred web hosting). 
+There is a PHP install script (easy-install.php) for Nameless, but I personally use a VPS to host this software (never in my life have I preferred web hosting). 
 All dependencies will be installed, and all you have to do is follow the instructions on the website.
 
 ## Using the script
