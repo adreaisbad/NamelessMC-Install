@@ -1,8 +1,10 @@
 # NamelessMC Installation Script
 
+**IMPORTANT: DO NOT USE THIS SCRIPT; IT HAS NOT BEEN COMPLETELY TESTED AND MAY CAUSE PROBLEMS.**
+
+
 For more information about NamelessMC, check out https://namelessmc.com/
 
-**IMPORTANT: DO NOT USE THIS SCRIPT; IT HAS NOT BEEN COMPLETELY TESTED AND MAY CAUSE PROBLEMS.**
 
 ## What is the purpose of this script?
 I know there is a easy-install.php for Nameless, but I personally use a VPS to host this software (I have never preferred web hosting). 
