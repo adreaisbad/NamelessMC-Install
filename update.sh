@@ -56,11 +56,13 @@ sudo mysql_secure_installation
 
 ############# NamelessMC Installation #############
 
+rm -rf /var/www/html/
 mkdir -p /var/www/html/
 cd /var/www/html/
 
 curl -o NamelessMC.zip https://github.com/NamelessMC/Nameless/archive/refs/tags/v2.0.0-pr12.zip
 unzip NamelessMC.zip
+rm -rf NamelessMC.zip
 
 cd Nameless-2.0.0-pr12
 
