@@ -28,7 +28,7 @@ MYSQL_USER="nameless"
 ############# MySQL Password #############
 
 echo -n " Please enter your strongly preferred MySQL password:"
-read MYSQL_PASSWORD
+read -s MYSQL_PASSWORD
 
 echo ""
 echo "Before starting this installation script, you should have set the DNS record. (I'm so bad at english)"
