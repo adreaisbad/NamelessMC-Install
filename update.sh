@@ -15,7 +15,9 @@
 # 0. You just DO WHAT THE FUCK YOU WANT TO.
 ##############################################################################
 
-echo "Welcome to this shitty install script WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO!!!!11!!!1"
+echo "================================================================="
+echo "NamelessMC Installation Script - Made by dxqt/adrea"
+echo "=================================================================\n"
 
 ############# Variables #############
 
@@ -25,11 +27,10 @@ MYSQL_USER="nameless"
 
 ############# MySQL Password #############
 
-echo -n " Please enter your strongly preferred MySQL password:"
+echo -n "\nPlease enter your strongly preferred MySQL password:"
 read -s MYSQL_PASSWORD
 
-echo ""
-echo "Before starting this installation script, you should have set the DNS record. (I'm so bad at english)"
+echo "\nBefore starting this installation script, you should have set the DNS record pointing to this machine."
 
 echo "Starting the installation process..."
 
@@ -50,7 +51,7 @@ sudo apt-get install php7.4 php7.4-curl php7.4-exif php7.4-gd php7.4-mbstring ph
 
 sudo apt install mariadb-server
 
-echo "Before proceeding, complete these secure MySQL installation steps."
+echo "\nBefore proceeding, complete these secure MySQL installation steps.\n"
 sudo mysql_secure_installation
 
 ############# NamelessMC Installation #############
@@ -73,9 +74,9 @@ a2enmod rewrite
 
 systemctl restart apache2
 
-# Some stuffs that are required for this shit to run.
-sed "$(grep -n "AllowOverride None" /etc/apache2/apache2.conf |cut -f1 -d:)s/.*/AllowOverride All/" /etc/apache2/apache2.conf > /etc/apache2/apache2.conf
-sed "$(grep -n "/bind-address 127.0.0.1/" /etc/mysql/mysql.conf.d/mysqld.cnf |cut -f1 -d:)s/.*/bind-address 0.0.0.0/" /etc/mysql/mysql.conf.d/mysqld.cnf > /etc/mysql/mysql.conf.d/mysqld.cnf
+# Temporarily removed until I fixed this
+# sed "$(grep -n "AllowOverride None" /etc/apache2/apache2.conf |cut -f1 -d:)s/.*/AllowOverride All/" /etc/apache2/apache2.conf > /etc/apache2/apache2.conf
+# sed "$(grep -n "/bind-address 127.0.0.1/" /etc/mysql/mysql.conf.d/mysqld.cnf |cut -f1 -d:)s/.*/bind-address 0.0.0.0/" /etc/mysql/mysql.conf.d/mysqld.cnf > /etc/mysql/mysql.conf.d/mysqld.cnf
 
 # Creating the MySQL database.
 
@@ -98,5 +99,5 @@ chown www-data:www-data /var/www/html/ -R
 rm -rf /var/www/html/index.html/
 systemctl restart apache2
 
-echo "Finished! Go to your website and configure everything as you want it to be! (again, totally not english skills issue)"
-
+echo "\nFinished! Go to your website and configure everything as you want it to be.\nMake sure to star my repo plz, and follow my GitHub."
+exit 0
