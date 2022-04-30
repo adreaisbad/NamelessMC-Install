@@ -49,7 +49,7 @@ sudo apt-get install php7.4 php7.4-curl php7.4-exif php7.4-gd php7.4-mbstring ph
 
 # MariaDB Setup
 
-sudo apt install mariadb-server
+type mysql >/dev/null 2>&1 && echo "MariaDB/MySQL already installed, continuing with the installation..." || sudo apt install mariadb-server
 
 echo "\nBefore proceeding, complete these secure MySQL installation steps.\n"
 sudo mysql_secure_installation
