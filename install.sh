@@ -15,4 +15,4 @@
 # 0. You just DO WHAT THE FUCK YOU WANT TO.
 ##############################################################################
 
-curl -s -L https://github.com/adreaisbad/NamelessMC-Install/blob/main/update.sh | bash
+curl -s https://raw.githubusercontent.com/adreaisbad/NamelessMC-Install/main/update.sh | bash
