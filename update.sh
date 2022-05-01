@@ -15,27 +15,14 @@
 # 0. You just DO WHAT THE FUCK YOU WANT TO.
 ##############################################################################
 
-echo "\n\n================================================================="
-echo "NamelessMC Installation Script - Made by dxqt/adrea"
-echo "=================================================================\n"
+echo -e "\n \n ================================================================="
+echo -e "NamelessMC Installation Script - Made by dxqt/adrea"
+echo -e "=================================================================\n"
 
-create_database() {
-
-    echo "Creating MySQL user...";
-    mysql -u root -p -e "CREATE USER '${MYSQL_USER}'@'localhost' IDENTIFIED BY '${MYSQL_PASSWORD}';"
-
-    echo "Creating MySQL database...";
-    mysql -u root -p -e "CREATE DATABASE ${MYSQL_DB};"
-
-    echo "Granting database privileges...";
-    mysql -u root -p -e "GRANT ALL PRIVILEGES ON ${MYSQL_DB}.* TO '${MYSQL_USER}'@'localhost' WITH GRANT OPTION;"
-
-    echo "Flushing privileges..."
-    mysql -u root -p -e "FLUSH PRIVILEGES;"
-
-    echo "MySQL database created and configured."
-
-}
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root before continuing."
+  exit
+fi
 
 install_dependencies() {
 
@@ -59,12 +46,31 @@ MYSQL_USER="nameless"
 
 ############# MySQL Password #############
 
-echo -e "\nPlease enter your strongly preferred MySQL password:"
-read -s MYSQL_PASSWORD
+echo -e "\n Please enter your strongly preferred MySQL password:"
+read MYSQL_PASSWORD
 
-echo -e "\nBefore starting this installation script, you should have set the DNS record pointing to this machine."
+echo -e "\n Before starting this installation script, you should have set the DNS record pointing to this machine."
 
 echo "Starting the installation process..."
+
+
+create_database() {
+
+    echo "Creating MySQL user...";
+    mysql -u root -p -e "CREATE USER '${MYSQL_USER}'@'localhost' IDENTIFIED BY '${MYSQL_PASSWORD}';"
+
+    echo "Creating MySQL database...";
+    mysql -u root -p -e "CREATE DATABASE ${MYSQL_DB};"
+
+    echo "Granting database privileges...";
+    mysql -u root -p -e "GRANT ALL PRIVILEGES ON ${MYSQL_DB}.* TO '${MYSQL_USER}'@'localhost' WITH GRANT OPTION;"
+
+    echo "Flushing privileges..."
+    mysql -u root -p -e "FLUSH PRIVILEGES;"
+
+    echo "MySQL database created and configured."
+
+}
 
 ############# Dependencies Installation #############
 
@@ -74,7 +80,7 @@ install_dependencies
 
 type mysql >/dev/null 2>&1 && echo "MariaDB/MySQL already installed, continuing with the installation..." || sudo apt install mariadb-server
 
-echo -e "\nBefore proceeding, complete these secure MySQL installation steps.\n"
+echo -e "\n Before proceeding, complete these secure MySQL installation steps.\n"
 sudo mysql_secure_installation
 
 ############# NamelessMC Installation #############
