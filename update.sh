@@ -36,16 +36,7 @@ echo "Starting the installation process..."
 
 ############# Dependencies Installation #############
 
-# PHP 7.4
-
-sudo apt -y install software-properties-common
-sudo add-apt-repository ppa:ondrej/php
-sudo apt-get update
-
-# Web Server and Dependencies
-
-sudo apt-get install curl apache2 zip unzip -y
-sudo apt-get install php7.4 php7.4-curl php7.4-exif php7.4-gd php7.4-mbstring php7.4-mysql php7.4-pdo php7.4-xml -y
+install_dependencies
 
 # MariaDB Setup
 
@@ -80,21 +71,7 @@ systemctl restart apache2
 # sed "$(grep -n "AllowOverride None" /etc/apache2/apache2.conf |cut -f1 -d:)s/.*/AllowOverride All/" /etc/apache2/apache2.conf > /etc/apache2/apache2.conf
 # sed "$(grep -n "/bind-address 127.0.0.1/" /etc/mysql/mysql.conf.d/mysqld.cnf |cut -f1 -d:)s/.*/bind-address 0.0.0.0/" /etc/mysql/mysql.conf.d/mysqld.cnf > /etc/mysql/mysql.conf.d/mysqld.cnf
 
-# Creating the MySQL database.
-
-echo "Creating MySQL user...";
-mysql -u root -p -e "CREATE USER '${MYSQL_USER}'@'localhost' IDENTIFIED BY '${MYSQL_PASSWORD}';"
-
-echo "Creating MySQL database...";
-mysql -u root -p -e "CREATE DATABASE ${MYSQL_DB};"
-
-echo "Granting database privileges...";
-mysql -u root -p -e "GRANT ALL PRIVILEGES ON ${MYSQL_DB}.* TO '${MYSQL_USER}'@'localhost' WITH GRANT OPTION;"
-
-echo "Flushing privileges..."
-mysql -u root -p -e "FLUSH PRIVILEGES;"
-
-echo "MySQL database created & configured!"
+create_database
 
 # Uhhhh stuffs
 chown www-data:www-data /var/www/html/ -R
@@ -103,3 +80,35 @@ systemctl restart apache2
 
 echo "\nFinished! Go to your website and configure everything as you want it to be.\nMake sure to star my repo plz, and follow my GitHub."
 exit 0
+
+create_database () {
+
+    echo "Creating MySQL user...";
+    mysql -u root -p -e "CREATE USER '${MYSQL_USER}'@'localhost' IDENTIFIED BY '${MYSQL_PASSWORD}';"
+
+    echo "Creating MySQL database...";
+    mysql -u root -p -e "CREATE DATABASE ${MYSQL_DB};"
+
+    echo "Granting database privileges...";
+    mysql -u root -p -e "GRANT ALL PRIVILEGES ON ${MYSQL_DB}.* TO '${MYSQL_USER}'@'localhost' WITH GRANT OPTION;"
+
+    echo "Flushing privileges..."
+    mysql -u root -p -e "FLUSH PRIVILEGES;"
+
+    echo "MySQL database created & configured!"
+
+}
+
+install_dependencies () {
+
+    # PHP 7.4
+
+    sudo apt -y install software-properties-common
+    sudo add-apt-repository ppa:ondrej/php
+    sudo apt-get update
+
+    # Web Server and Dependencies
+
+    sudo apt-get install curl apache2 zip unzip -y
+    sudo apt-get install php7.4 php7.4-curl php7.4-exif php7.4-gd php7.4-mbstring php7.4-mysql php7.4-pdo php7.4-xml -y
+}
